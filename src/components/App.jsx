@@ -1,8 +1,40 @@
 import React from 'react'
 const electron = window.require('electron')
 const { ipcRenderer } = window.require('electron')
+const mongoose = window.require('mongoose');
+mongoose.connect('mongodb://localhost:27017/react-electron', { useNewUrlParser: true, useUnifiedTopology: true });
 
 export default props => {
+
+
+    let Teste = mongoose.model('teste', {
+
+        dados: String
+    })
+
+    function salvar() {
+
+        let teste = new Teste({
+
+            dados: 'kkkkkkk'
+        })
+
+        teste.save().then(() => {
+
+
+            console.log('dados salvos')
+
+
+
+        }).catch((err) => {
+
+            console.log(err)
+
+
+
+        })
+
+    }
 
 
 
@@ -12,6 +44,8 @@ export default props => {
         ipcRenderer.send('close', 'close')
 
     }
+
+
 
     return (
 
@@ -24,7 +58,7 @@ export default props => {
 
                         <p className="text-center">Esta é uma interface de usuário construída com react e electron</p>
 
-                        <button className="btn btn-danger" onClick={close}>Fechar</button>
+                        <button className="btn btn-danger" onClick={salvar}>Salvar</button>
                     </div>
                 </div>
             </div>
