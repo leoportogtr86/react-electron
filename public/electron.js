@@ -2,11 +2,13 @@
 //https://carloslevir.com/aplicacao-desktop-react-electron/
 
 const electron = require('electron')
-const { app, BrowserWindow } = electron
+const { app, BrowserWindow, ipcMain } = electron
 const path = require('path')
 const isDev = require('electron-is-dev')
 
 let mainWindow
+
+
 
 
 function createWindow() {
@@ -38,6 +40,11 @@ function createWindow() {
 app.on('ready', () => {
 
     createWindow()
+
+    ipcMain.on('close', () => {
+
+        app.quit()
+    })
 
 })
 
