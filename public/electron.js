@@ -41,6 +41,7 @@ app.on('ready', () => {
 
     createWindow()
 
+    //recebendo o evento close no processo principal e encerrando a aplicação
     ipcMain.on('close', () => {
 
         app.quit()

@@ -6,11 +6,10 @@ export default props => {
 
 
 
+    //enviando o evento close do app para o processo principal
     function close() {
 
         ipcRenderer.send('close', 'close')
-
-
 
     }
 
