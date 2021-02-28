@@ -3,4 +3,7 @@
 # Electron JS + React JS
 
 
-Projeto configurado para rodar electron js e react js, pra construir aplicações desktop integrado com o framework de frontend react js.
+Projeto configurado para rodar electron js e react js, pronto para construir aplicações desktop integrado com o framework de frontend react js.
+
+
+
